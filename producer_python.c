@@ -4,6 +4,7 @@
 {
     "distutils": {
         "depends": [
+            "common.h",
             "producer.h"
         ],
         "include_dirs": [
@@ -617,6 +618,7 @@ static CYTHON_INLINE float __PYX_NAN() {
 #define __PYX_HAVE__producer_python
 #define __PYX_HAVE_API__producer_python
 /* Early includes */
+#include "common.h"
 #include "producer.h"
 #ifdef _OPENMP
 #include <omp.h>
@@ -991,6 +993,10 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
                                int py_line, const char *filename);
 
 /* CIntToPy.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
+
+static PyObject* __pyx_convert__to_py_common_struct_t(common_struct_t s);
+/* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
 /* CIntFromPy.proto */
@@ -1025,29 +1031,39 @@ extern int __pyx_module_is_main_producer_python;
 int __pyx_module_is_main_producer_python = 0;
 
 /* Implementation of 'producer_python' */
+static const char __pyx_k_x[] = "x";
+static const char __pyx_k_inc[] = "inc";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_py_produce[] = "py_produce";
 static const char __pyx_k_producer_python[] = "producer_python";
 static const char __pyx_k_py_produce_simple[] = "py_produce_simple";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_producer_python_pyx[] = "producer_python.pyx";
 static PyObject *__pyx_n_s_cline_in_traceback;
+static PyObject *__pyx_n_s_inc;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_producer_python;
 static PyObject *__pyx_kp_s_producer_python_pyx;
+static PyObject *__pyx_n_s_py_produce;
 static PyObject *__pyx_n_s_py_produce_simple;
 static PyObject *__pyx_n_s_test;
+static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_pf_15producer_python_py_produce_simple(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_15producer_python_2py_produce(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_codeobj_;
+static PyObject *__pyx_tuple__2;
+static PyObject *__pyx_codeobj__3;
 /* Late includes */
 
-/* "producer_python.pyx":4
- *      void produce_simple()
+/* "producer_python.pyx":9
+ *      common_struct_t produce()
  * 
  * def py_produce_simple() -> None:             # <<<<<<<<<<<<<<
  *     produce_simple()
+ * 
  */
 
 /* Python wrapper */
@@ -1069,22 +1085,93 @@ static PyObject *__pyx_pf_15producer_python_py_produce_simple(CYTHON_UNUSED PyOb
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("py_produce_simple", 0);
 
-  /* "producer_python.pyx":5
+  /* "producer_python.pyx":10
  * 
  * def py_produce_simple() -> None:
  *     produce_simple()             # <<<<<<<<<<<<<<
+ * 
+ * def py_produce() -> common_struct_t:
  */
   produce_simple();
 
-  /* "producer_python.pyx":4
- *      void produce_simple()
+  /* "producer_python.pyx":9
+ *      common_struct_t produce()
  * 
  * def py_produce_simple() -> None:             # <<<<<<<<<<<<<<
  *     produce_simple()
+ * 
  */
 
   /* function exit code */
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "producer_python.pyx":12
+ *     produce_simple()
+ * 
+ * def py_produce() -> common_struct_t:             # <<<<<<<<<<<<<<
+ *     x = produce()
+ *     return x
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_15producer_python_3py_produce(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_15producer_python_3py_produce = {"py_produce", (PyCFunction)__pyx_pw_15producer_python_3py_produce, METH_NOARGS, 0};
+static PyObject *__pyx_pw_15producer_python_3py_produce(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("py_produce (wrapper)", 0);
+  __pyx_r = __pyx_pf_15producer_python_2py_produce(__pyx_self);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_15producer_python_2py_produce(CYTHON_UNUSED PyObject *__pyx_self) {
+  common_struct_t __pyx_v_x;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("py_produce", 0);
+
+  /* "producer_python.pyx":13
+ * 
+ * def py_produce() -> common_struct_t:
+ *     x = produce()             # <<<<<<<<<<<<<<
+ *     return x
+ */
+  __pyx_v_x = produce();
+
+  /* "producer_python.pyx":14
+ * def py_produce() -> common_struct_t:
+ *     x = produce()
+ *     return x             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert__to_py_common_struct_t(__pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "producer_python.pyx":12
+ *     produce_simple()
+ * 
+ * def py_produce() -> common_struct_t:             # <<<<<<<<<<<<<<
+ *     x = produce()
+ *     return x
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("producer_python.py_produce", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -1137,12 +1224,15 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
+  {&__pyx_n_s_inc, __pyx_k_inc, sizeof(__pyx_k_inc), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_producer_python, __pyx_k_producer_python, sizeof(__pyx_k_producer_python), 0, 0, 1, 1},
   {&__pyx_kp_s_producer_python_pyx, __pyx_k_producer_python_pyx, sizeof(__pyx_k_producer_python_pyx), 0, 0, 1, 0},
+  {&__pyx_n_s_py_produce, __pyx_k_py_produce, sizeof(__pyx_k_py_produce), 0, 0, 1, 1},
   {&__pyx_n_s_py_produce_simple, __pyx_k_py_produce_simple, sizeof(__pyx_k_py_produce_simple), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
+  {&__pyx_n_s_x, __pyx_k_x, sizeof(__pyx_k_x), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
@@ -1153,13 +1243,26 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "producer_python.pyx":4
- *      void produce_simple()
+  /* "producer_python.pyx":9
+ *      common_struct_t produce()
  * 
  * def py_produce_simple() -> None:             # <<<<<<<<<<<<<<
  *     produce_simple()
+ * 
  */
-  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_producer_python_pyx, __pyx_n_s_py_produce_simple, 4, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_producer_python_pyx, __pyx_n_s_py_produce_simple, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 9, __pyx_L1_error)
+
+  /* "producer_python.pyx":12
+ *     produce_simple()
+ * 
+ * def py_produce() -> common_struct_t:             # <<<<<<<<<<<<<<
+ *     x = produce()
+ *     return x
+ */
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_n_s_x); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__2);
+  __Pyx_GIVEREF(__pyx_tuple__2);
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_producer_python_pyx, __pyx_n_s_py_produce, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1435,21 +1538,34 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "producer_python.pyx":4
- *      void produce_simple()
+  /* "producer_python.pyx":9
+ *      common_struct_t produce()
  * 
  * def py_produce_simple() -> None:             # <<<<<<<<<<<<<<
  *     produce_simple()
+ * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_15producer_python_1py_produce_simple, NULL, __pyx_n_s_producer_python); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_15producer_python_1py_produce_simple, NULL, __pyx_n_s_producer_python); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_py_produce_simple, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_py_produce_simple, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "producer_python.pyx":12
+ *     produce_simple()
+ * 
+ * def py_produce() -> common_struct_t:             # <<<<<<<<<<<<<<
+ *     x = produce()
+ *     return x
+ */
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_15producer_python_3py_produce, NULL, __pyx_n_s_producer_python); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_py_produce, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "producer_python.pyx":1
- * cdef extern from "producer.h":             # <<<<<<<<<<<<<<
- *      void produce_simple()
- * 
+ * cdef extern from "common.h":             # <<<<<<<<<<<<<<
+ *     ctypedef struct common_struct_t:
+ *         int inc
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -1769,6 +1885,50 @@ bad:
     Py_XDECREF(py_frame);
 }
 
+/* CIntToPy */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
+    const int neg_one = (int) ((int) 0 - (int) 1), const_zero = (int) 0;
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(int) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(int) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(int) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(int),
+                                     little, !is_unsigned);
+    }
+}
+
+static PyObject* __pyx_convert__to_py_common_struct_t(common_struct_t s) {
+  PyObject* res;
+  PyObject* member;
+  res = __Pyx_PyDict_NewPresized(1); if (unlikely(!res)) return NULL;
+  member = __Pyx_PyInt_From_int(s.inc); if (unlikely(!member)) goto bad;
+  if (unlikely(PyDict_SetItem(res, __pyx_n_s_inc, member) < 0)) goto bad;
+  Py_DECREF(member);
+  return res;
+  bad:
+  Py_XDECREF(member);
+  Py_DECREF(res);
+  return NULL;
+}
 /* CIntToPy */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
     const long neg_one = (long) ((long) 0 - (long) 1), const_zero = (long) 0;
